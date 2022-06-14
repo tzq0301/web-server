@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.w {
+    width: 1200px;
+    margin: auto;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+body {
+    background-color: #f3f5f7;
+}
+.header {
+    height: 42px;
+    /* background-color: pink; */
+    /* 注意此地方会层叠 w 里面的margin */
+    margin: 30px auto;
+}
+.logo {
+    float: left;
+    width: 198px;
+    height: 42px;
+}
+.nav {
+        float: left;
+        margin-left: 60px;
+}
+.nav li {
+    float: left;
+    margin: 0 30px;
+}
+.nav a {
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    color: #050505;
+    font-size: 18px;
+    padding:10px;
+}
+.nav a:hover {
+    border-bottom:1px solid rgb(255,0,0);
+    color:rgb(255,0,0);
+   
+}
+.search {
+    float: left;
+    width: 412px;
+    height: 42px;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+.search input {
+    float: left;
+    width: 345px;
+    height: 40px;
+    border: 0px ;
+    color: #bfbfbf;
+    font-size: 14px;
+    padding-left: 10px;
+    /* margin-top: 5px; */
+}
+.search .button {
+    float: left;
+    width: 50px;
+    height: 42px;
+    /* 按钮button默认有个边框需要我们手动去掉 */
+    border: 0;
+    /* background-color: rgb(255,255,255,0.7); */
+    color:#a5a5a5;
+    line-height: 42px;
+    text-align: center;
+    font-size: large;
+    padding-left: 5px;
+   
+}
+.user a {
+    float: right ;
+    line-height: 42px  ;
+    margin-right: 30px  ;
+    font-size: 14px  ;
+    color: #a5a5a5  ;
+    padding-top: 10px  ;
+    font-size: 14px  ;
+    background-color: none;
+}
+.user a:hover {
+    border-bottom:1px solid rgb(255,0,0)  ;
+    color:rgb(255,0,0)  ;
+}
+
+.layui-nav right{
+    background-color: none ;
+}
+.banner .w{
+    height: 421px;
+    background: url(images/trace_covid.png) no-repeat top center;
+}
+.subnav {
+    float: left;
+    width: 190px;
+    height: 421px;
+    background: rgba(0,0,0, 0.7);
+}
+.subnav li {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    
+}
+.subnav li:hover{
+    background-color: rgba(255,6,20,0.5);
+}
+.subnav a {
+    font-size: 14px;
+    color: #fff;
+    
+}
+.subnav span {
+    float:right;
+    color: #fff;
+    
+}
+.subnav a:hover {
+    color: #F34743;  
+}
+.goods {
+    height: 60px;
+    
+    background-color: #fff;
+    margin-top: 10px;
+    box-shadow: 0 2px 3px 3px rgba(0,0,0, 0.1);
+    /* 行高会继承， 会继承给3个孩子 */
+    line-height: 60px;
+}
+.goods h3 {
+    float: left;
+    margin-left: 30px;
+    font-size: 16px;
+    color: rgb(204, 13, 21);
+}
+.goods ul{
+    float: left;
+    margin-left: 30px;
+}
+.goods li {
+    float: left;
+}
+.goods ul li a {
+    padding: 0 30px;
+    font-size: 16px;
+    color: #050505;
+    border-left: 1px solid #ccc;
+}
+.goods ul li a:hover {
+    color: #F34743;
+}
+/* .mod {
+    float: right;
+    color: #F34743;
+    font-size: 14px;
+    margin-right: 30px;
+} */
+.box {
+    margin-top: 20px;
+}
+.box-hd {
+    margin-bottom: 10px;
+    height: 45px;
+}
+.box-hd h3 {
+    float: left;
+    font-size: 16px;
+    color: #494949;
+}
+.box-hd a {
+    float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+    /* margin-top: 10px; */
+    margin-right: 30px;
+}
+.box-bd a:hover {
+    border-bottom:1px solid rgb(255,0,0)  ;
+    color:rgb(255,0,0)  ;
+}
+.box-bd ul {
+    height: 270px;
+    margin-bottom: 15px;
+    /* 把li 的父亲ul 修改的足够宽一行能装开5个盒子就不会换行了 */
+    width: 1500px;
+}
+.box-bd li {
+    position: relative;
+    float: left;
+    width: 228px;
+    margin-right: 15px;
+    background-color: #fff;
+   margin-left: 0px;
+}
+.box-bd ul li>img{
+    width: 100%;
+}
+.box-bd li em {
+    position:absolute;
+    top:2px;
+    right:2px;
+}
+.box-bd h4 {
+    margin: 20px 20px 20px 25px;
+    font-size: 14px;
+    color: #050505;
+    font-weight: 400;
+}
+.box-bd h4 a{
+    color: #050505;
+}
+.box-bd .info {
+    margin: 0px 20px 10px 25px;
+    font-size: 12px;
+    color: #999;
+}
+.box-bd span {
+    color: #ff7c2d;
+}
+.footer {
+    height: 415px;
+    background-color: #fff;
+    margin-top: 35px;
+}
+.left {
+    float: left;
+}
+.links {
+    float: right;
+}
+.links dl {
+    float: left;
+    margin-right: 100px;
+    
+}
+.links dt {
+    color: #bfbfbf;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.links a {
+    color: #ccc;
+    font-size: 14px;
+}
+.left button {
+    display: block;
+    width:100px;
+    height:50px;
+    border:1px solid #999;
+    color: #999;
+    background-color: snow;
+    margin-top: 30px;
+}
+
+.list_box {
+    margin: 50px auto;
+}
+.list_box h1
+{
+	font-family:"微软雅黑";
+	font-size:20px;
+	text-align:center;
+    margin:10px 0;
+}
+
+.list_box_newInfo
+{
+	color:#666;
+	text-align:center;
+	border-bottom:1px dotted #666;
+}
+
+.list_box_newsContent
+{
+	font-size:14px;
+	padding:20px;
+	line-height:25px;
+	text-indent:2em;
+}
+

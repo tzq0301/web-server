@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./admin_type/lib/layui/layui.js" charset="utf-8"></script>
+    <style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body,
+		input {
+			font-size: 14px;
+			line-height: 24px;
+			color: rgba(0, 0, 0, 0.8);
+			font-family: Microsoft yahei, Song, Arial, Helvetica, Tahoma, Geneva;
+		}
+
+
+
+		h4 {
+			text-align: left;
+			color: #999;
+			margin-bottom: 10px;
+
+		}
+		#content #post,
+		#comment p {
+			zoom: 1;
+		}
+
+		#content #post:after,
+		#comment p:after {
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+			overflow: hidden;
+			content: '.';
+		}
+
+		.transition {
+			-webkit-transition: all 0.5s linear;
+			-moz-transition: all 0.5s linear;
+			-o-transition: all 0.5s linear;
+			-ms-transition: all 0.5s linear;
+			transition: all 0.5s linear;
+		}
+
+		#content {
+			margin-bottom:50px ;
+			width: 1000px;
+			overflow: hidden;
+            margin-left: 200px;
+			
+		}
+
+		#content #post {
+			margin-bottom: 50px;
+			padding-bottom: 15px;
+			border-bottom: 1px #d4d4d4 dashed;
+			
+		
+		}
+
+		#content #post textarea {
+			display: block;
+			margin-bottom: 10px;
+			padding: 5px;
+			width: 1000px;
+			height: 50px;
+			border: 1px #d1d1d1 solid;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			resize: none;
+			outline: none;
+			
+		
+		}
+
+		/* #content #post textarea:hover{border:1px #9bdf70 solid; background:#f0fbeb;} */
+		#content #post #postBt,
+		#content #post #clearBt {
+			margin-left: 5px;
+			padding: 3px;
+			float: right;
+		}
+
+		#comment {
+			overflow: hidden;
+			/* transform : translate(0, -200px); */
+		}
+
+		#comment p {
+			margin-bottom: 10px;
+			padding: 10px;
+			border-radius: 5px;
+		}
+
+		#comment p {
+			background: rgb(241, 241, 236);
+		}
+
+		/* #comment p:nth-child(even){border:1px solid #adcd3c; background:#f2fddb;} */
+		/*#comment p span{display:inline; float:left;}*/
+		#comment p .right {
+			text-align: right;
+		}
+
+		#comment p .msg {
+			width: 738px;
+		}
+
+		#comment p .datetime {
+			width: 200px;
+			color: #999;
+			text-align: right;
+		}
+	</style>
+	<script type="text/javascript">
+		var named;
+		function delete1(id) {
+			localStorage.removeItem(id);
+			this.Storage.writeData();
+		}
+		function prom() {
+
+			var name = prompt("请输入您的名字", "");//将输入的内容赋给变量 name ，
+			named = name;
+			//这里需要注意的是，prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值
+
+			if (named)//如果返回的有内容
+
+			{
+
+				alert("欢迎您：" + name)
+				document.getElementById("shangtian").style.display = "none";
+				document.getElementById("ritian").value = named;
+
+			}
+			else {
+				document.getElementById("ritian").value = "匿名发言者";
+			}
+
+		}
+		var Storage =
+		{
+			saveData: function ()//保存数据
+			{
+
+				var data = document.querySelector("#post textarea");
+				if (data.value != "") {
+					var time = new Date().getTime() + Math.random() * 5;//getTime是Date对象中的方法，作用是返回 1970年01月01日至今的毫秒数
+					if (named) {
+						localStorage.setItem(time, data.value + "|" + named + "|" + this.getDateTime());//将毫秒数存入Key值中，可以降低Key值重复率
+					}
+					else {
+						localStorage.setItem(time, data.value + "|" + "匿名发言者" + "|" + this.getDateTime());//将毫秒数存入Key值中，可以降低Key值重复率
+					}
+
+					data.value = "";
+					this.writeData();
+				}
+				else {
+					alert("请填写您的留言！");
+				}
+			},
+			writeData: function ()//输出数据
+			{
+				var dataHtml = "", data = "";
+				for (var i = localStorage.length - 1; i >= 0; i--)//效率更高的循环方法
+				{
+					data = localStorage.getItem(localStorage.key(i)).split("|");
+
+					//dataHtml += "<p><span class=\"msg\">" + data[0] + "</span><span class=\"datetime\">" + data[1] + "</span><span>" + data[2]+"</span></p>";
+					dataHtml += "<span style=>" + data[1] + "<span style=\"float:right\">" + data[2] + "</span><p><span class=\"msg\">" + data[0] + "</span></p>";
+				}
+				document.getElementById("comment").innerHTML = dataHtml;
+			},
+			clearData: function ()//清空数据
+			{
+				if (localStorage.length > 0) {
+					if (window.confirm("清空后不可恢复，是否确认清空？")) {
+						localStorage.clear();
+						this.writeData();
+					}
+				}
+				else {
+					alert("没有需要清空的数据！");
+				}
+			},
+			getDateTime: function ()//获取日期时间，例如 2012-03-08 12:58:58
+			{
+				var isZero = function (num)//私有方法，自动补零
+				{
+					if (num < 10) {
+						num = "0" + num;
+					}
+					return num;
+				}
+
+				var d = new Date();
+				return d.getFullYear() + "-" + isZero(d.getMonth() + 1) + "-" + isZero(d.getDate()) + " " + isZero(d.getHours()) + ":" + isZero(d.getMinutes()) + ":" + isZero(d.getSeconds());
+			}
+		}
+
+		window.onload = function () {
+
+			// Storage.writeData();//当打开页面的时候，先将localStorage中的数据输出一边，如果没有数据，则输出空
+			document.getElementById("postBt").onclick = function () { Storage.saveData(); }//发表评论按钮添加点击事件，作用是将localStorage中的数据输出
+			document.getElementById("clearBt").onclick = function () { Storage.clearData(); }//清空所有已保存的数据
+            Storage.clearData();
+		}
+	</script>
+</head>
+    <div class="header w">
+        <div class="logo">
+            <img src="images/login2.png" alt="">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="../admin/home.html">首页</a></li>
+                <li> <a href="#">个人中心</a></li>
+          
+            </ul>    
+        </div>
+        <div class="search">
+            <input type="text" value="请输入关键词">
+            <div class="button">搜 索</div>
+            <!-- <button><img src='&#xe6ac' alt=""></button> -->
+        </div>
+        <div class="user">
+            <!-- <img src="images/user.png" alt=""> -->
+            <a href="#">用 户 登 录</a>
+            
+        </div>
+    </div>
+
+
+    <div class="list_box w " >
+        <h2>疫情</h2>
+        <h1>成都本轮疫情累计本土确诊26例，2例重型为80岁以上老人</h1>
+        <p class="list_box_newInfo">发布人:央视新闻 发布时间:2022-6-14 11:20</p>
+        <div class="list_box_newsContent">
+            <p>
+                17日上午10点，四川成都市召开新冠肺炎疫情防控工作新闻发布会，成都市卫健委副主任何晓介绍，11月2日成都市报告1例本土确诊病例以来，截至17日6时，本轮疫情累计报告本土确诊病例26例。所有病例均在成都市公卫中心接受治疗。
+            </p>
+
+            <!-- <p align="center"><img src="images/news1.jpg" width="500" height="336" alt="活动内容"/></p> -->
+            <p>
+                目前24例普通型、轻型患者病情稳定；2例重型患者均为80岁以上的老年人，身患多种基础疾病，正在全力进行救治。
+            </p>
+        </div>
+    </div>
+
+    <div id="content" class="content w">
+		<h4>评论</h4>
+		<div id="post">
+			<div style="height:30px;color: #999;">
+				昵称：
+
+				<input type="text" id="ritian" style="border:none;  color:#999;"value="小王"
+					onclick="prom()" />
+				<!--disabled="disabled"-->
+			</div>
+			<div>
+				<textarea class="transition"></textarea>
+			</div>
+
+			<input id="postBt" type="button"
+				style="border:none; background-color:rgba(0, 0, 0, 0.8); color:white;border-radius:5px; width:80px; height:30px;"
+				value="发表评论" />
+<!--            <input id="clearBt" type="button"-->
+<!--                   style="border:none; background-color:rgba(0, 0, 0, 0.8); color:white;border-radius:5px; width:80px; height:30px;"-->
+<!--                   value="清空" />-->
+
+		</div>
+
+
+		<div id="comment">
+
+		</div>
+	</div>
+
+    <div class="footetr w">
+        <div class="left">
+            <img src="images/login2.png" alt="">
+            <button>下载APP</button>
+        </div>
+        <div class="links">
+            <dl>
+                <dt>友情链接</dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">人民网</a></dd>
+                <dd><a href="#">央视网</a></dd>
+                <dd><a href="#">四川观察</a></dd>
+                <dd><a href="#">环球网</a></dd>
+            </dl>
+
+            <dl>
+                <dt>组员</dt>
+                <dd><a href="#">戴佳</a></dd>
+                <dd><a href="#">叶拯</a></dd>
+                <dd><a href="#">冯馨田</a></dd>
+
+            </dl>
+        </div>
+    </div>
+<body>
+ 
+</body>
+
+</html>

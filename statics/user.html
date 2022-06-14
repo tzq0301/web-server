@@ -1,0 +1,20 @@
+<html> 
+<head> 
+<script language="javascript"> 
+function openwin() 
+{openwindow=window.open("", "newwin", "height=250, width=250,toolbar=no,scrollbars="+scroll+",menubar=no"); 
+//写成一行 
+openwindow.document.write("<title>例子</title>") 
+openwindow.document.write("<body bgcolor=#ffffff>") 
+openwindow.document.write("<h1>hello!</h1>") 
+openwindow.document.write("new window opened!") 
+openwindow.document.write("</body>") 
+openwindow.document.write("</html>") 
+openwindow.document.close()} 
+</script> 
+</head> 
+<body> 
+<a href="#" >打开一个窗口</a> 
+<input type="button" value="打开窗口" onclick="openwin()"> 
+</body> 
+</html>

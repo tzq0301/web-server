@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Include stylesheet -->
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+    <script src="./admin_type/lib/layui/layui.js" charset="utf-8"></script>
+	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+	<title>投稿</title>
+	<style>
+
+		.type {
+			float: left;
+			margin-right: 5px;
+			background-color: black;
+		}
+		#editor {
+			float: left;
+			width: 200px;
+
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body,
+		input {
+			font-size: 14px;
+			line-height: 24px;
+			color: rgba(0, 0, 0, 0.8);
+			font-family: Microsoft yahei, Song, Arial, Helvetica, Tahoma, Geneva;
+		}
+
+		h1 {
+			margin-bottom: 15px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			font-size: 24px;
+			color: #fff;
+			background: rgba(0, 0, 0, 0.8);
+		}
+
+		#content #post,
+		#comment p {
+			zoom: 1;
+		}
+
+		#content #post:after,
+		#comment p:after {
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+			overflow: hidden;
+			content: '.';
+		}
+
+		#content {
+			margin: 0 auto;
+			width: 700px;
+			overflow: hidden;
+			
+		}
+
+		#content #post {
+			margin-bottom: 15px;
+			padding-bottom: 15px;
+			border-bottom: 1px #d4d4d4 dashed;
+		}
+
+		#content #post .editor {
+			display: block;
+			margin-bottom: 10px;
+			padding: 5px;
+			width: 700px;
+			height: 600px;
+			border: 1px #d1d1d1 solid;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			resize: none;
+			outline: none;
+			
+		
+		}
+		.w{
+			width: 700px !important;
+			margin-top: 100px;
+		}
+	</style>
+	
+</head>
+<body>
+	
+<!-- Create the editor container -->
+
+<h1>投稿</h1>
+
+	<div id="content">
+		<div id="post">
+			<div style="background:rgba(0, 0, 0, 0.8) ;height:30px;color: #fff;">
+				昵称：
+				<!-- <input type="submit" id="shangtian" name="Submit3"
+					style="border:none; background-color:rgba(0, 0, 0, 0.8); color:#fff;" value="默认用户点击改变" onclick="prom()" /> -->
+					<!-- <i class="tishi" style="color: #fff;">默认用户点击改变</i> -->
+		
+				<input type="text" id="ritian" style="border:none; background-color:rgb(51, 51, 51); color:white;"value="小王"
+					onclick="prom()" />
+				<!--disabled="disabled"-->
+			</div>
+			<div class="title">
+	
+				<div class="editor">
+				  <p>Hello World!</p>
+				  <p>Some initial <strong>bold</strong> text</p>
+				  <p><br></p>
+				</div>
+				
+				<script>
+				  var quill = new Quill('.editor', {
+					theme: 'snow',
+					formats: [],
+				  placeholder: '输入评论...',
+					
+				  });
+			
+				
+				</script>
+			</div>
+
+			<input id="postBt" type="button"
+				style="border:none; background-color:rgba(0, 0, 0, 0.8); color:white;border-radius:5px; width:80px; height:30px;"
+				value="投稿" />
+			
+		</div>
+
+
+		
+	</div>
+
+	<div class="footetr w">
+        <div class="left">
+            <img src="images/login2.png" alt="">
+            <button>下载APP</button>
+        </div>
+        <div class="links">
+            <dl>
+                <dt>友情链接</dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">人民网</a></dd>
+                <dd><a href="#">央视网</a></dd>
+                <dd><a href="#">四川观察</a></dd>
+                <dd><a href="#">环球网</a></dd>
+            </dl>
+            <!-- <dl>
+                <dt></dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">管理团队</a></dd>
+                <dd><a href="#">工作机会</a></dd>
+                <dd><a href="#">客户服务</a></dd>
+                <dd><a href="#">帮助</a></dd>
+            </dl> -->
+            <dl>
+                <dt>组员</dt>
+                <dd><a href="#">戴佳</a></dd>
+                <dd><a href="#">叶拯</a></dd>
+                <dd><a href="#">冯馨田</a></dd>
+                <!-- <dd><a href="#">客户服务</a></dd>
+                <dd><a href="#">帮助</a></dd> -->
+            </dl>
+        </div>
+    </div>
+	
+</body>
+</html>

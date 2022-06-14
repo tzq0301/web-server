@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="style.css">
+  
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function open_tab(){
+            // window.open('../admin/member-password.html', '_top','height=100px, width=400, top=50%,left=50%, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
+            window.open('../admin/member-password.html', 'enterpriseCust', "toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=no,titlebar=no,toolbar=no,resizable=no,copyhistory=yes, width=400, height=300,top=250,left=400")
+
+        }
+
+        function exit(){
+            window.alert("您已经退出！");
+        }
+ 
+    </script>
+</head>
+    <div class="header w">
+        <div class="logo">
+            <img src="images/R-C.png" alt="">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      个人中心 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" style="font-size: 15px;" onclick=open_tab()>修改密码</a></li>
+                      <li><a href="#" style="font-size: 15px;" onclick="exit()">退出登录</a></li>
+                    </ul>
+                  </li>
+          
+            </ul>    
+        </div>
+        <div class="search">
+            <input type="text" value="请输入关键词">
+            <div class="button">搜 索</div>
+            <!-- <button><img src='&#xe6ac' alt=""></button> -->
+        </div>
+        <div class="user">
+       
+            <a href="../admin/login.html">用 户 登 录</a>
+            
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="w">
+            <div class="subnav">
+                <ul>
+                    <li><a href="#">国际</a><span>&gt</span></li>
+                    <li><a href="#">国内</a><span>&gt</span></li>
+                    <li><a href="#">军事</a><span>&gt</span></li>
+                    <li><a href="#">财经</a><span>&gt</span></li>
+                    <li><a href="#">科技</a><span>&gt</span></li>
+                    <li><a href="#">汽车</a><span>&gt</span></li>
+                    <li><a href="#">艺术</a><span>&gt</span></li>
+                    <li><a href="#">文旅</a><span>&gt</span></li>
+                    <li><a href="#">教育</a><span>&gt</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="goods w">
+        <h3>连接世界</h3>
+        <ul>
+            <!-- <li><a href="">论坛</a></li> -->
+            <li><a href="board.html">政务留言板</a></li>
+            <li><a href="article.html">投稿</a></li>
+            <li><a href="tip.html">举报</a></li>
+            <!-- <li><a href="#">MySQL</a></li>
+            <li><a href="#">MySQL</a></li> -->
+        </ul>
+        <!-- <a href="#" class="mod">修改兴趣</a> -->
+    </div>
+
+    <div class="box w">
+        <div class="box-hd">
+            <h3>热点</h3>
+            <!-- <a href="#">查看全部</a> -->
+        </div>
+        <div class="box-bd">
+            <ul>
+                <li>
+                    <em>
+                        <img src="images/hot.png" alt="">
+                    </em>
+                    <img src="images/news1.png" alt="">
+                    <h4><a href="news1.html">致敬疫情英雄</a></h4>
+                    <div class="info">
+                        <span>疫情</span>
+                        1125人在浏览
+                    </div>
+                </li>
+                <li>
+                    <img src="images/news1.png" alt="">
+                    <h4><a href="news2.html">防疫期宠物怎么办？公益组织呼吁建立全国性家养宠物隔离制度</a></h4>
+                    <div class="info">
+                        <span>疫情</span>
+                        1125人在浏览
+                    </div>
+                </li>
+                <li>
+                    <img src="images/news1.png" alt="">
+                    <h4><a href="news1.html">致敬疫情英雄</a></h4>
+                    <div class="info">
+                        <span>疫情</span>
+                        1125人在浏览
+                    </div>
+                </li>
+                <li>
+                    <img src="images/news1.png" alt="">
+                    <h4><a href="news1.html">致敬疫情英雄</a></h4>
+                    <div class="info">
+                        <span>疫情</span>
+                        1125人在浏览
+                    </div>
+                </li>
+                <li>
+                    <img src="images/news1.png" alt="">
+                    <h4><a href="news1.html">致敬疫情英雄</a></h4>
+                    <div class="info">
+                        <span>疫情</span>
+                        1125人在浏览
+                    </div>
+                </li>
+            </ul>
+        </div>   
+    </div>
+
+    <div class="footetr w">
+        <div class="left">
+            <img src="images/R-C.png" alt="">
+            <button>下载APP</button>
+        </div>
+        <div class="links">
+            <dl>
+                <dt>友情链接</dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">人民网</a></dd>
+                <dd><a href="#">央视网</a></dd>
+                <dd><a href="#">四川观察</a></dd>
+                <dd><a href="#">环球网</a></dd>
+            </dl>
+            <!-- <dl>
+                <dt></dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">管理团队</a></dd>
+                <dd><a href="#">工作机会</a></dd>
+                <dd><a href="#">客户服务</a></dd>
+                <dd><a href="#">帮助</a></dd>
+            </dl> -->
+            <dl>
+                <dt>组员</dt>
+                <dd><a href="#">戴佳</a></dd>
+                <dd><a href="#">叶拯</a></dd>
+                <dd><a href="#">冯馨田</a></dd>
+                <!-- <dd><a href="#">客户服务</a></dd>
+                <dd><a href="#">帮助</a></dd> -->
+            </dl>
+        </div>
+    </div>
+<body>
+ 
+</body>
+
+</html>
